@@ -108,6 +108,13 @@ classdef FigureManager < handle
             % for Figure
             set( figureH, 'defaultAxesCreateFcn',...
                 @(src, evn) o.axesAdd( src, evn ));
+            % assign figuremanager to it
+            if ~isempty(figureH.UserData)
+                warning('FigureManager can not be assigned to figureH');
+            else
+                figureH.UserData = o;
+            end
+            
             % for Plot, Stairs, Stem, Bar
             set( o.figureH, 'defaultLineCreateFcn',...
                 @o.plotAdd);
@@ -117,6 +124,8 @@ classdef FigureManager < handle
                 @o.plotAdd);
             set( o.figureH, 'defaultBarCreateFcn',...
                 @o.plotAdd);
+            
+            
             %
             % Figure size change call back
             %
