@@ -16,7 +16,11 @@ else
     if isdatetime(x)
         x = datenum(x);
         bDatetime = 1;
+    elseif isduration(x)
+        x = datenum(x);
+        bDatetime = 2;
     end
+        
     xDec = zeros(1,l);
     yDec = zeros(1,l);
     for k=1:l
@@ -39,8 +43,18 @@ else
         yDec(2*k-1:(2*k)) = [yMin; yMax];
         
     end ;
-    if bDatetime
-        xDec = datetime(xDec,'ConvertFrom','datenum') ;
+    
+    switch bDatetime
+        case 1 %datetime
+            xDec = datetime(xDec,'ConvertFrom','datenum') ;
+        case 2 %datenum
+            
+            xDec = datetime(xDec,'ConvertFrom','datenum') - datetime(xDec(1),'ConvertFrom','datenum') ;
+                 
     end
+        
+%     if bDatetime
+%         xDec = datetime(xDec,'ConvertFrom','datenum') ;
+%     end
     
 end;
