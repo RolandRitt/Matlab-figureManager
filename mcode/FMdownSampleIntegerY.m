@@ -40,8 +40,7 @@ else
         %
         tempInds = randperm(length(usedBins));
         ys = usedBins(tempInds);
-%         ys = usedBins;
-        %
+
 %         xDec(k*2-1:k*2) = xs;
 %         yDec(k*2-1:k*2) = ys;
         xDec = [xDec; xs];
