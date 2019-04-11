@@ -3,7 +3,6 @@ function [xDec, yDec] = ...
 %
 % Do nothing if too few points are available
 nrDataPts = length( x );
-bDatetime = false;
 if nrDataPts / 4 <= nrPts
     xDec = x;
     yDec = y;
@@ -40,7 +39,7 @@ else
         %
         tempInds = randperm(length(usedBins));
         ys = usedBins(tempInds);
-
+        %
 %         xDec(k*2-1:k*2) = xs;
 %         yDec(k*2-1:k*2) = ys;
         xDec = [xDec; xs];
