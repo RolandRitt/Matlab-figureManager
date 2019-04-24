@@ -8,5 +8,5 @@ It automatically decimates the data set, if interaction takes place.
 The test funcions use the graphics-toolbox: TBD add URL
 
 ## Example Plot
-![avatarPic](avatar.png | width=100))
+![avatarPic](avatar.png | width=600))
 
